@@ -6,7 +6,8 @@ module.exports = {
 	entry: {
 		ext: './app/ext.js',
 		dock: './app/dock.js',
-		app: './app/index.js'
+		app: './app/index.js',
+		screenshot: './app/screenshot.js'
 	},
 	output: {
 		path: __dirname + '/dist',
@@ -28,7 +29,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin( { filename: 'global.html', excludeChunks: ['dock', 'app'] } ),
 		new HtmlWebpackPlugin( { filename: 'inject.html', excludeChunks: ['ext', 'app' ] } ),
-		new HtmlWebpackPlugin( { filename: 'index.html', chunks: [ 'app' ] } )
+		new HtmlWebpackPlugin( { filename: 'index.html', chunks: [ 'app', 'screenshot' ] } )
 	],
 	postcss: [ autoprefixer() ]
 };
