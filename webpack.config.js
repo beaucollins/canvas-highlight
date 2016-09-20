@@ -1,6 +1,7 @@
 const BannerPlugin = require( 'webpack' ).BannerPlugin;
 const autoprefixer = require( 'autoprefixer' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
+const { version } = require( './package' );
 
 module.exports = {
 	devtool: 'sourcemap',
@@ -31,7 +32,7 @@ module.exports = {
 		new HtmlWebpackPlugin( { filename: 'global.html', excludeChunks: ['dock', 'app'] } ),
 		new HtmlWebpackPlugin( { filename: 'inject.html', excludeChunks: ['ext', 'app' ] } ),
 		new HtmlWebpackPlugin( { filename: 'index.html', chunks: [ 'app', 'screenshot' ] } ),
-		new BannerPlugin( 'https://github.com/beaucollins/canvas-highlighter' )
+		new BannerPlugin( `https://github.com/beaucollins/canvas-highlighter ${ version }` )
 	],
 	postcss: [ autoprefixer() ]
 };
