@@ -135,7 +135,7 @@ const highlightRects = ( ctx, highlights = [] ) => {
 	const { canvas: { width, height } } = ctx;
 	rectCanvas.width = width;
 	rectCanvas.height = height;
-	const rectContext = rectCanvas.getContext( '2d' );;
+	const rectContext = rectCanvas.getContext( '2d' );
 	rectContext.fillStyle = 'black';
 	rectContext.globalAlpha = 0.25;
 	rectContext.fillRect( 0, 0, width, height );
