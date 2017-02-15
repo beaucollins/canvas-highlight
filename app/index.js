@@ -2,16 +2,18 @@
 const div = document.createElement( 'div' );
 const field = document.createElement( 'input' )
 const link = document.createElement( 'a' );
+const other = document.createElement( 'input' )
 
 field.setAttribute( 'type', 'file' );
 
 document.body.appendChild( div );
 div.appendChild( field );
 const editor = window.screenshot( div );
+div.appendChild( other );
 
 div.appendChild( editor.canvas );
 
-link.innerText = 'Hello';
+link.innerText = 'Upload';
 link.setAttribute( 'href', '#' );
 link.addEventListener( 'click', e => {
 	e.preventDefault();
