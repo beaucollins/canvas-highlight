@@ -178,6 +178,7 @@ const offsetCoords = node => ( { x, y } ) => {
 
 const init = () => {
 	const canvas = document.createElement( 'canvas' );
+	canvas.setAttribute( 'tabindex', '-1' )
 	const context = canvas.getContext( '2d' );
 	let image;
 
@@ -192,7 +193,7 @@ const init = () => {
 		offsetCoords( canvas )
 	);
 
-	document.addEventListener( 'keydown', map_fn(
+	canvas.addEventListener( 'keydown', map_fn(
 		when(
 			and( keyIsPressed( 8 ), stateIs( STATES.SELECTING ) ),
 			map_fn( e => e.preventDefault(), deleteSelectedRect, setState( STATES.RESTING ), draw )
