@@ -6,8 +6,6 @@ const { version } = require( './package' );
 module.exports = {
 	devtool: 'sourcemap',
 	entry: {
-		ext: './app/ext.js',
-		dock: './app/dock.js',
 		app: './app/index.js',
 		screenshot: './app/screenshot.js'
 	},
@@ -29,10 +27,8 @@ module.exports = {
 		moduleDirectories: [ 'app', 'lib', 'node_modules' ]
 	},
 	plugins: [
-		new HtmlWebpackPlugin( { filename: 'global.html', excludeChunks: ['dock', 'app'] } ),
-		new HtmlWebpackPlugin( { filename: 'inject.html', excludeChunks: ['ext', 'app' ] } ),
 		new HtmlWebpackPlugin( { filename: 'index.html', chunks: [ 'app', 'screenshot' ] } ),
-		new BannerPlugin( `https://github.com/beaucollins/canvas-highlighter ${ version }` )
+		new BannerPlugin( `https://github.com/beaucollins/canvas-highlight ${ version }` )
 	],
 	postcss: [ autoprefixer() ]
 };
